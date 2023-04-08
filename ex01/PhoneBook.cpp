@@ -6,7 +6,7 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:24:00 by rertzer           #+#    #+#             */
-/*   Updated: 2023/03/22 15:04:22 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/04/08 09:41:59 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,29 +23,29 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
-void	PhoneBook::AddContact(void)
+void	PhoneBook::addContact(void)
 {
 	std::string		input = "";
 	
-	input = this->_GetInput("first name");
-	this->_book[this->_current_contact].SetFirstname(input);
+	input = this->_getInput("first name");
+	this->_book[this->_current_contact].setFirstname(input);
 
-	input = this->_GetInput("last name");
-	this->_book[this->_current_contact].SetLastname(input);
+	input = this->_getInput("last name");
+	this->_book[this->_current_contact].setLastname(input);
 
-	input = this->_GetInput("nick name");
-	this->_book[this->_current_contact].SetNickname(input);
+	input = this->_getInput("nick name");
+	this->_book[this->_current_contact].setNickname(input);
 
-	input = this->_GetInput("phone number");
-	this->_book[this->_current_contact].SetPhonenumber(input);
+	input = this->_getInput("phone number");
+	this->_book[this->_current_contact].setPhonenumber(input);
 
-	input = this->_GetInput("darkest secret");
-	this->_book[this->_current_contact].SetDarkestsecret(input);
+	input = this->_getInput("darkest secret");
+	this->_book[this->_current_contact].setDarkestsecret(input);
 
 	this->_current_contact = (this->_current_contact + 1) % 8;
 }
 
-std::string	PhoneBook::_GetInput(std::string name) const
+std::string	PhoneBook::_getInput(std::string name) const
 {
 	std::string	input = "";
 
@@ -57,7 +57,7 @@ std::string	PhoneBook::_GetInput(std::string name) const
 		if (input == "")
 			std::cout << "Sorry, cant't be empty" << std::endl;
 		if (name == "phone number" && \
-				!this->_book[this->_current_contact].IsValidPhonenumber(input))
+				!this->_book[this->_current_contact].isValidPhonenumber(input))
 		{
 			input = "";
 			std::cout << "Sorry, only digits allowed" << std::endl;
@@ -66,41 +66,40 @@ std::string	PhoneBook::_GetInput(std::string name) const
 	return input;
 }
 
-void	PhoneBook::SearchContact(void) const
+void	PhoneBook::searchContact(void) const
 {
 	unsigned int	index;
 
-	this->_PrintTable();
-	index = this->_GetIndex();
-	this->_book[index].PrintContact();
+	this->_printTable();
+	index = this->_getIndex();
+	this->_book[index].printContact();
 }
 
-void	PhoneBook::_PrintTable() const
+void	PhoneBook::_printTable() const
 {
 	for (int i = 0 ; i < 8 ; i++)
 	{
-		//if (this->_book[i] != NULL)
-			this->_PrintLine(i);
+			this->_printLine(i);
 	}
 }
 
-void	PhoneBook::_PrintLine(unsigned int index) const
+void	PhoneBook::_printLine(unsigned int index) const
 {
 	std::cout << std::setfill (' ') << std::setw(10) << index;
 	std::cout << "|";
-	std::cout << std::setfill (' ') << std::setw(10) << this->_Truncate(this->_book[index].GetFirstname());
+	std::cout << std::setfill (' ') << std::setw(10) << this->_truncate(this->_book[index].getFirstname());
 	std::cout << "|";
-	std::cout << std::setfill (' ') << std::setw(10) << this->_Truncate(this->_book[index].GetLastname());
+	std::cout << std::setfill (' ') << std::setw(10) << this->_truncate(this->_book[index].getLastname());
 	std::cout << "|";
-	std::cout << std::setfill (' ') << std::setw(10) << this->_Truncate(this->_book[index].GetNickname());
+	std::cout << std::setfill (' ') << std::setw(10) << this->_truncate(this->_book[index].getNickname());
 	std::cout << "|";
-	std::cout << std::setfill (' ') << std::setw(10) << this->_Truncate(this->_book[index].GetPhonenumber());
+	std::cout << std::setfill (' ') << std::setw(10) << this->_truncate(this->_book[index].getPhonenumber());
 	std::cout << "|";
-	std::cout << std::setfill (' ') << std::setw(10) << this->_Truncate(this->_book[index].GetDarkestsecret());
+	std::cout << std::setfill (' ') << std::setw(10) << this->_truncate(this->_book[index].getDarkestsecret());
 	std::cout << std::endl;
 }
 
-std::string PhoneBook::_Truncate(std::string src) const
+std::string PhoneBook::_truncate(std::string src) const
 {
 	std::string	dest;
 	if (src.length() > 10)
@@ -113,7 +112,7 @@ std::string PhoneBook::_Truncate(std::string src) const
 	return dest;
 }
 
-unsigned int	PhoneBook::_GetIndex(void) const
+unsigned int	PhoneBook::_getIndex(void) const
 {
 	std::string		input;
 	unsigned int	index = 9;

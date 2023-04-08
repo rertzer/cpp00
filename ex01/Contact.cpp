@@ -6,7 +6,7 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 16:11:25 by rertzer           #+#    #+#             */
-/*   Updated: 2023/03/22 14:11:29 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/04/08 09:43:31 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,56 +22,56 @@ Contact::~Contact(void)
 	return ;
 }
 
-void	Contact::SetFirstname(std::string str)
+void	Contact::setFirstname(std::string str)
 {
 	this->_firstname = str;	
 }
 
-void	Contact::SetLastname(std::string str)
+void	Contact::setLastname(std::string str)
 {
 	this->_lastname = str;	
 }
 
-void	Contact::SetNickname(std::string str)
+void	Contact::setNickname(std::string str)
 {
 	this->_nickname = str;	
 }
 
-void	Contact::SetPhonenumber(std::string str)
+void	Contact::setPhonenumber(std::string str)
 {
-	if (this->IsValidPhonenumber(str))
+	if (this->isValidPhonenumber(str))
 		this->_phonenumber = str;	
 }
 
-void	Contact::SetDarkestsecret(std::string str)
+void	Contact::setDarkestsecret(std::string str)
 {
 	this->_darkestsecret = str;	
 }
 
-std::string	Contact::GetFirstname(void) const
+std::string	Contact::getFirstname(void) const
 {
 	return this->_firstname;
 }
 
-std::string	Contact::GetLastname(void) const
+std::string	Contact::getLastname(void) const
 {
 	return this->_lastname;
 }
 
-std::string	Contact::GetNickname(void) const
+std::string	Contact::getNickname(void) const
 {
 	return this->_nickname;
 }
 
-std::string	Contact::GetPhonenumber(void) const
+std::string	Contact::getPhonenumber(void) const
 {
 	return this->_phonenumber;
 }
-std::string	Contact::GetDarkestsecret(void) const
+std::string	Contact::getDarkestsecret(void) const
 {
 	return this->_darkestsecret;
 }
-void	Contact::PrintContact(void) const
+void	Contact::printContact(void) const
 {
 	std::cout << "firstname : " << this->_firstname << std::endl;
 	std::cout << "lastname : " << this->_lastname << std::endl;
@@ -80,7 +80,7 @@ void	Contact::PrintContact(void) const
 	std::cout << "darkestsecret : " << this->_darkestsecret << std::endl;
 }
 
-int	Contact::IsValidPhonenumber(std::string input) const
+int	Contact::isValidPhonenumber(std::string input) const
 {
 	for (unsigned int i = 0 ; i < input.length() ; i++)
 	{

@@ -6,7 +6,7 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:56:19 by rertzer           #+#    #+#             */
-/*   Updated: 2023/03/22 13:46:52 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/04/08 09:42:50 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ class	Contact
 		Contact(void);
 		~Contact(void);
 
-		void		SetFirstname(std::string str);
-		void		SetLastname(std::string str);
-		void		SetNickname(std::string str);
-		void		SetPhonenumber(std::string str);
-		void		SetDarkestsecret(std::string str);
-		std::string	GetFirstname(void) const;
-		std::string	GetLastname(void) const;
-		std::string	GetNickname(void) const;
-		std::string	GetPhonenumber(void) const;
-		std::string	GetDarkestsecret(void) const;
-		void		PrintContact(void) const;
-		int			IsValidPhonenumber(std::string input) const;
+		void		setFirstname(std::string str);
+		void		setLastname(std::string str);
+		void		setNickname(std::string str);
+		void		setPhonenumber(std::string str);
+		void		setDarkestsecret(std::string str);
+		std::string	getFirstname(void) const;
+		std::string	getLastname(void) const;
+		std::string	getNickname(void) const;
+		std::string	getPhonenumber(void) const;
+		std::string	getDarkestsecret(void) const;
+		void		printContact(void) const;
+		int			isValidPhonenumber(std::string input) const;
 
 	private:
 		std::string		_firstname;
