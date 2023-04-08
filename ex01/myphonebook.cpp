@@ -6,7 +6,7 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:14:07 by rertzer           #+#    #+#             */
-/*   Updated: 2023/04/08 09:38:33 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/04/08 11:18:19 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main()
 
 	while (command != "EXIT")
 	{
+		if (std::cin.eof() || std::cin.bad())
+			break ;
 		std::cout << "\nPlease enter a command (ADD, SEARCH or EXIT)\n";
 		std::getline(std::cin, command);
 		if (command == "ADD")
